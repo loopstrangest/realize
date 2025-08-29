@@ -13,7 +13,7 @@ const LevelIntro: React.FC<LevelProps> = ({
   transitionState = 'idle',
 }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [showNavigation, setShowNavigation] = useState(false);
+  // const [showNavigation, setShowNavigation] = useState(false);
 
   const rows = [
     ['I', 'WANT'],
@@ -77,7 +77,7 @@ const LevelIntro: React.FC<LevelProps> = ({
         </div>
       </div>
 
-      {(showNavigation || (maxUnlockedLevel > 1 && transitionState !== 'fadeOut')) && (
+      {(maxUnlockedLevel > 1 && transitionState !== 'fadeOut') && (
         <LevelNavigation
           levelNumber={levelNumber}
           onNavigate={onNavigate}

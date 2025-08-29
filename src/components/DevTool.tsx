@@ -48,10 +48,10 @@ const DevTool: React.FC<DevToolProps> = ({ maxUnlockedLevel, onSetMaxUnlockedLev
             className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4"
           >
             <h3 className="text-lg font-bold mb-4 text-center text-black">
-              Select Max Unlocked Level
+              Jump to Any Level
             </h3>
             <div className="grid grid-cols-4 gap-2">
-              {Array.from({ length: maxUnlockedLevel }, (_, i) => i + 1).map((level) => (
+              {Array.from({ length: getTotalLevels() }, (_, i) => i + 1).map((level) => (
                 <button
                   key={level}
                   onClick={() => handleLevelSelect(level)}
@@ -62,7 +62,7 @@ const DevTool: React.FC<DevToolProps> = ({ maxUnlockedLevel, onSetMaxUnlockedLev
               ))}
             </div>
             <p className="text-xs text-gray-500 mt-4 text-center">
-              Click any unlocked level to reset game to that level
+              Click any level to jump directly to it
             </p>
           </div>
         </div>

@@ -18,9 +18,7 @@ const LevelSpinningCircle: React.FC<LevelProps> = ({
     if (currentWordIndex < TARGET_WORDS.length - 1) {
       setCurrentWordIndex(currentWordIndex + 1);
     } else {
-      setTimeout(() => {
-        onComplete();
-      }, 500);
+      onComplete();
     }
   };
 
@@ -72,8 +70,8 @@ const LevelSpinningCircle: React.FC<LevelProps> = ({
               const lastLetterPos = getLetterPosition(wordIndex, word.length - 1, word.length);
               
               // Calculate clickable area dimensions
-              const centerX = 200;
-              const centerY = 200;
+              // const centerX = 200;
+              // const centerY = 200;
               const clickableWidth = word === 'I' ? 60 : Math.abs(lastLetterPos.x - firstLetterPos.x) + 40;
               const clickableHeight = 40;
               

@@ -46,7 +46,7 @@ const LevelScreensaver: React.FC<LevelProps> = ({
     x: Math.random() * 400 + 100,
     y: Math.random() * 300 + 100
   }));
-  const [velocity, setVelocity] = useState(getRandomVelocity);
+  // const [velocity, setVelocity] = useState(getRandomVelocity);
   const velocityRef = useRef(getRandomVelocity());
 
   const currentWord = TARGET_WORDS[currentWordIndex];
@@ -57,7 +57,7 @@ const LevelScreensaver: React.FC<LevelProps> = ({
       // Reset position and velocity for next word
       setPosition(getRandomPosition());
       const newVelocity = getRandomVelocity();
-      setVelocity(newVelocity);
+      // setVelocity(newVelocity);
       velocityRef.current = newVelocity;
     } else {
       onComplete();
@@ -117,7 +117,7 @@ const LevelScreensaver: React.FC<LevelProps> = ({
         if (bounced) {
           const newVelocity = { x: newVelX, y: newVelY };
           velocityRef.current = newVelocity;
-          setVelocity(newVelocity);
+          // setVelocity(newVelocity);
         }
 
         return { x: newX, y: newY };

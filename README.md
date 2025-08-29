@@ -11,17 +11,6 @@ A word-finding web game where players tap their way through the phrase "I WANT T
 I WANT TO REALIZE ALL OF MY DESIRES
 ```
 
-## 🎯 Current Levels
-
-### Level 1: Introduction Grid
-Words appear one at a time in a 4×2 grid layout. Click each word as it appears to progress through the sequence.
-
-### Level 2: Spinning Circle 
-Words are arranged in a curved, spinning circle formation. Each word appears individually as letters following the circle's circumference.
-
-### Level 3: Bouncing Screensaver
-Classic '90s screensaver style! Words bounce around the screen diagonally, bouncing off walls. Click the moving word to advance.
-
 ## 🚀 Getting Started
 
 ### Prerequisites
