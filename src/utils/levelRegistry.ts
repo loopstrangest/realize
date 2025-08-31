@@ -7,6 +7,9 @@ import LevelDropdown from '../levels/levelDropdown';
 import LeveliMessage from '../levels/leveliMessage';
 import LevelT9Phone from '../levels/levelT9Phone';
 import LevelWordSearch from '../levels/levelWordSearch';
+import LevelBasket from '../levels/levelBasket';
+import LevelGettysburg from '../levels/levelGettysburg';
+import LevelHangman from '../levels/levelHangman';
 
 export interface LevelConfig {
   id: number;
@@ -54,6 +57,21 @@ export const LEVEL_REGISTRY: LevelConfig[] = [
     id: 8,
     name: 'levelWordSearch',
     component: LevelWordSearch,
+  },
+  {
+    id: 9,
+    name: 'levelBasket',
+    component: LevelBasket,
+  },
+  {
+    id: 10,
+    name: 'levelGettysburg',
+    component: LevelGettysburg,
+  },
+  {
+    id: 11,
+    name: 'levelHangman',
+    component: LevelHangman,
   },
 ];
 
