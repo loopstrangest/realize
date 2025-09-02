@@ -125,18 +125,7 @@ const LevelBasket: React.FC<LevelProps> = ({
       const newLives = lives - 1;
       setLives(newLives);
       
-      if (newLives <= 0) {
-        // Game over - restart with transition flash
-        setGameState('restarting');
-        setTimeout(() => {
-          setLives(3);
-          setCaughtWords([]);
-          setCurrentTargetIndex(0);
-          setFallingWords([]);
-          setWordsSinceLastTarget(0);
-          setGameState('playing');
-        }, 500);
-      }
+      // Lives can go negative - no game over!
     }
   }, [currentTargetWord, caughtWords, currentTargetIndex, lives, onComplete]);
 
@@ -287,38 +276,27 @@ const LevelBasket: React.FC<LevelProps> = ({
             <line x1="29" y1="50" x2="131" y2="50" stroke="black" strokeWidth="1"/>
           </svg>
           
-          {/* Checkmarks on basket in two rows - more visible with background */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <div className="flex space-x-1 mb-1">
-              {caughtWords.slice(0, 4).map((_, index) => (
-                <div key={index} className="bg-white rounded-full w-4 h-4 flex items-center justify-center border border-black">
-                  <span className="text-green-600 text-xs font-bold leading-none">
-                    ✓
-                  </span>
-                </div>
-              ))}
-            </div>
-            <div className="flex space-x-1">
-              {caughtWords.slice(4, 8).map((_, index) => (
-                <div key={index + 4} className="bg-white rounded-full w-4 h-4 flex items-center justify-center border border-black">
-                  <span className="text-green-600 text-xs font-bold leading-none">
-                    ✓
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Lives indicator */}
-        <div className="absolute top-4 left-4 flex space-x-2">
-          {Array.from({ length: lives }, (_, index) => (
-            <div key={index} className="w-6 h-6">
+        {/* Lives indicator - single heart with counter */}
+        <div className="absolute top-4 left-4">
+          <div className="flex items-center text-2xl font-bold">
+            <div className="w-8 h-8 mr-1">
               <svg viewBox="0 0 24 24" fill="black">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
             </div>
-          ))}
+            <span>X {lives}</span>
+          </div>
+          
+          {/* Checkmarks display - larger and below heart counter */}
+          <div className="mt-2 flex flex-wrap gap-2 max-w-32">
+            {caughtWords.map((_, index) => (
+              <span key={index} className="text-green-600 text-2xl font-bold leading-none">
+                ✓
+              </span>
+            ))}
+          </div>
         </div>
 
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TARGET_WORDS } from "../types/game";
 import { LevelProps } from "../types/game";
 import LevelNavigation from "../components/LevelNavigation";
@@ -133,6 +133,22 @@ const LevelHangman: React.FC<LevelProps> = ({
       }, 2000);
     }
   };
+
+  // Handle keyboard input
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const letter = event.key.toUpperCase();
+      if (letter >= 'A' && letter <= 'Z') {
+        handleLetterGuess(letter);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [hangman.guessedLetters, hangman.isComplete, phase]);
 
   // Hangman SVG component
   const HangmanSVG = ({ wrongGuesses }: { wrongGuesses: number }) => (
@@ -303,10 +319,6 @@ const LevelHangman: React.FC<LevelProps> = ({
           </div>
         )}
 
-        {/* Phase indicator */}
-        <div className="text-center text-gray-600 text-sm mb-4">
-          Phase {phase} of 2
-        </div>
 
         {/* Bottom: Keyboard */}
         <div className="mt-8">

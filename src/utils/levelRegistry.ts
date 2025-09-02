@@ -10,6 +10,10 @@ import LevelWordSearch from '../levels/levelWordSearch';
 import LevelBasket from '../levels/levelBasket';
 import LevelGettysburg from '../levels/levelGettysburg';
 import LevelHangman from '../levels/levelHangman';
+import LevelLoading from '../levels/levelLoading';
+import LevelPlayPause from '../levels/levelPlayPause';
+import LevelVowels from '../levels/levelVowels';
+import LevelFakeCongrats from '../levels/levelFakeCongrats';
 
 export interface LevelConfig {
   id: number;
@@ -72,6 +76,26 @@ export const LEVEL_REGISTRY: LevelConfig[] = [
     id: 11,
     name: 'levelHangman',
     component: LevelHangman,
+  },
+  {
+    id: 12,
+    name: 'levelLoading',
+    component: LevelLoading,
+  },
+  {
+    id: 13,
+    name: 'levelPlayPause',
+    component: LevelPlayPause,
+  },
+  {
+    id: 14,
+    name: 'levelVowels',
+    component: LevelVowels,
+  },
+  {
+    id: 15,
+    name: 'levelFakeCongrats',
+    component: LevelFakeCongrats,
   },
 ];
 
