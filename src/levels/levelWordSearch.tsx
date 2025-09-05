@@ -35,9 +35,9 @@ const LevelWordSearch: React.FC<LevelProps> = ({
   transitionState = 'idle',
 }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [foundWords, setFoundWords] = useState<string[]>([]);
   const [grid, setGrid] = useState<string[][]>([]);
   const [wordPlacements, setWordPlacements] = useState<WordPlacement[]>([]);
-  const [foundWords, setFoundWords] = useState<string[]>([]);
   const [crossoutLines, setCrossoutLines] = useState<CrossoutLine[]>([]);
 
   const GRID_ROWS = 12;
@@ -459,6 +459,7 @@ const LevelWordSearch: React.FC<LevelProps> = ({
 
   useEffect(() => {
     generateWordSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getCellPosition = (row: number, col: number) => {

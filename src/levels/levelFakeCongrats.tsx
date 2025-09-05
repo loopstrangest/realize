@@ -36,7 +36,7 @@ const LevelFakeCongrats: React.FC<LevelProps> = ({
         "Excellent - enjoyed every level",
         "Good - I would play more games like this", // I (word 1)
         "Fair - it was okay",
-        "Poor - not my preference",
+        "Poor - not preferable",
       ],
     },
     {
@@ -135,6 +135,9 @@ const LevelFakeCongrats: React.FC<LevelProps> = ({
       const cleanWord = word.replace(/[.,!?;:-]/g, "");
       const targetWord = TARGET_WORDS[currentTargetIndex];
       const isClickable = cleanWord.toUpperCase() === targetWord.toUpperCase();
+      const isAlreadyClicked = caughtWords.some(
+        (caughtWord) => caughtWord.toUpperCase() === cleanWord.toUpperCase()
+      );
 
       return (
         <span key={index}>
@@ -147,6 +150,8 @@ const LevelFakeCongrats: React.FC<LevelProps> = ({
             >
               {word}
             </span>
+          ) : isAlreadyClicked ? (
+            <span className="bg-yellow-300">{word}</span>
           ) : (
             <span>{word}</span>
           )}
@@ -184,21 +189,21 @@ const LevelFakeCongrats: React.FC<LevelProps> = ({
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="text-6xl mb-8">🎉</div>
 
-          <h1 className="text-4xl font-bold mb-6 text-gray-800">
+          <h1 className="text-4xl font-bold mb-8 text-black">
             Congratulations!
           </h1>
 
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+          <p className="text-xl text-black mb-8 leading-relaxed">
             You completed the word-finding journey!
           </p>
 
-          <div className="text-lg text-gray-700 mb-8">
+          <div className="text-lg text-black mb-8">
             Please fill out this short feedback survey:
           </div>
 
           <button
             onClick={() => setShowSurvey(!showSurvey)}
-            className="px-8 py-4 text-xl font-bold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            className="bg-black text-white px-8 py-3 text-lg font-bold hover:bg-gray-800 transition-colors font-primary"
           >
             {showSurvey ? "Hide Survey" : "Show Survey"}
           </button>
@@ -241,9 +246,9 @@ const LevelFakeCongrats: React.FC<LevelProps> = ({
             <div className="text-center mt-8">
               <button
                 onClick={() => {}} // Fake submit - does nothing
-                className={`px-8 py-3 text-lg font-bold rounded-lg transition-colors ${
+                className={`px-8 py-3 text-lg font-bold transition-colors font-primary ${
                   allQuestionsAnswered
-                    ? "bg-green-500 text-white hover:bg-green-600"
+                    ? "bg-black text-white hover:bg-gray-800"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
                 disabled={!allQuestionsAnswered}

@@ -162,8 +162,8 @@ const LeveliMessage: React.FC<LevelProps> = ({
         <div
           className={`max-w-xs px-4 py-2 rounded-2xl select-none ${
             isUser
-              ? 'bg-blue-500 text-white'
-              : 'bg-gray-200 text-black'
+              ? 'bg-blue-500 text-white ml-auto'
+              : 'bg-gray-200 text-black mr-auto'
           }`}
         >
           <span className="text-sm select-none">
@@ -202,7 +202,7 @@ const LeveliMessage: React.FC<LevelProps> = ({
       <div className="flex-1 flex flex-col">
         {/* Messages area */}
         <div className="flex-1 p-4 overflow-y-auto">
-          <div className="space-y-2">
+          <div className="max-w-md mx-auto space-y-2">
             {/* Existing messages */}
             {messages.map((message) => renderMessage(message))}
             

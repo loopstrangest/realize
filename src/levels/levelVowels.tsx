@@ -20,8 +20,7 @@ const LevelVowels: React.FC<LevelProps> = ({
   const [revealedVowels, setRevealedVowels] = useState(0);
   const [extraEs, setExtraEs] = useState(0);
 
-  // The complete phrase: "I WANT TO REALIZE ALL OF MY DESIRES"
-  const fullPhrase = TARGET_WORDS.join(' ');
+  // The complete phrase contains all target words
   
   // All vowels in the phrase in order: I, A, O, E, A, I, E, A, O, E, I, E (12 total)
   const vowelPositions = [
@@ -247,7 +246,7 @@ const LevelVowels: React.FC<LevelProps> = ({
             {userInput.length > 0 ? (
               <button
                 onClick={handleSubmit}
-                className="px-6 py-3 text-lg font-bold bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+                className="bg-black text-white px-8 py-3 text-lg font-bold hover:bg-gray-800 transition-colors font-primary"
               >
                 Submit
               </button>

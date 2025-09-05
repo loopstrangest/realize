@@ -53,8 +53,8 @@ const LevelSpinningCircle: React.FC<LevelProps> = ({
   const currentWord = TARGET_WORDS[currentWordIndex];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="flex-1 flex items-center justify-center">
+    <div className="min-h-screen bg-white flex flex-col overflow-hidden">
+      <div className="flex-1 flex items-center justify-center overflow-hidden">
         <div className="relative w-96 h-96">
           <div 
             className="absolute inset-0 animate-spin-slow"
