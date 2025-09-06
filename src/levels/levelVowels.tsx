@@ -210,7 +210,7 @@ const LevelVowels: React.FC<LevelProps> = ({
   if (gameState === 'input') {
     return (
       <div className="h-screen bg-white flex flex-col overflow-hidden">
-        <div className={`flex-1 flex flex-col items-center justify-center p-8 transition-opacity duration-500 ${fadeState === 'hidden' ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`flex-1 flex flex-col items-center justify-center p-8 pb-20 transition-opacity duration-500 ${fadeState === 'hidden' ? 'opacity-0' : 'opacity-100'}`}>
           
           <div className="text-3xl font-bold text-center mb-8">
             How many vowels do you want?

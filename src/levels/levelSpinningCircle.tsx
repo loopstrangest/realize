@@ -54,7 +54,7 @@ const LevelSpinningCircle: React.FC<LevelProps> = ({
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="flex-1 flex items-center justify-center overflow-hidden">
+      <div className="flex-1 flex items-center justify-center overflow-hidden pb-20">
         <div className="relative w-96 h-96">
           <div 
             className="absolute inset-0 animate-spin-slow"

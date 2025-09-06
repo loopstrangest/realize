@@ -122,7 +122,7 @@ const LevelT9Phone: React.FC<LevelProps> = ({
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="flex-1 flex flex-col items-center justify-center p-4 pb-2">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 pb-20">
         <div className="max-w-sm w-full flex flex-col items-center space-y-4">
 
           {/* Phone keypad */}

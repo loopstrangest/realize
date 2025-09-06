@@ -165,7 +165,7 @@ const LevelLoading: React.FC<LevelProps> = ({
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="flex-1 flex flex-col items-center justify-center p-8">
+      <div className="flex-1 flex flex-col items-center justify-center p-8 pb-20">
         {/* Loading Bar */}
         <div className="w-full max-w-md mb-2">
           <div className="bg-gray-200 rounded-full h-6 overflow-hidden">

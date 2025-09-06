@@ -140,7 +140,7 @@ const LevelScreensaver: React.FC<LevelProps> = ({
       <div 
         ref={containerRef}
         className="flex-1 relative overflow-hidden"
-        style={{ minHeight: 'calc(100vh - 80px)' }}
+        style={{ height: 'calc(100vh - 80px)' }}
       >
         <div
           ref={wordRef}

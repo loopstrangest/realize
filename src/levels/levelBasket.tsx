@@ -209,7 +209,7 @@ const LevelBasket: React.FC<LevelProps> = ({
         className="flex-1 relative cursor-none"
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
-        style={{ minHeight: 'calc(100vh - 80px)' }}
+        style={{ height: 'calc(100vh - 80px)' }}
       >
         {/* Game over transition flash */}
         {gameState === 'restarting' && (

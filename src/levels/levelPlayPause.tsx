@@ -119,7 +119,7 @@ const LevelPlayPause: React.FC<LevelProps> = ({
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="flex-1 flex flex-col items-center justify-center p-4 px-8 space-y-6">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 px-8 pb-20 space-y-6">
         {/* Fixed height message area */}
         <div className="h-32 flex items-center justify-center w-full">
           {renderClickableMessage(currentMessage)}

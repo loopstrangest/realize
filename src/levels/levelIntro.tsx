@@ -46,7 +46,7 @@ const LevelIntro: React.FC<LevelProps> = ({
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
-      <div className="flex-1 p-8 flex items-center justify-center">
+      <div className="flex-1 p-8 pb-20 flex items-center justify-center">
         <div className="max-w-sm space-y-8">
           {rows.map((row, rowIndex) => (
             <div key={rowIndex} className="flex justify-center space-x-8">

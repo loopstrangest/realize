@@ -89,34 +89,34 @@ const LevelSpotlight: React.FC<LevelProps> = ({
     }
   };
 
-  // Initialize word position and spotlight radius on mount and window resize
+  // Initialize spotlight radius on mount and window resize
   useEffect(() => {
-    const updateLayout = () => {
-      setWordPosition(generateWordPosition());
+    const updateSpotlightRadius = () => {
       setSpotlightRadius(calculateSpotlightRadius());
     };
 
-    updateLayout();
+    updateSpotlightRadius();
     
-    window.addEventListener('resize', updateLayout);
-    return () => window.removeEventListener('resize', updateLayout);
+    window.addEventListener('resize', updateSpotlightRadius);
+    return () => window.removeEventListener('resize', updateSpotlightRadius);
   }, []);
 
-  // Update word position when currentWordIndex changes (but only if container exists)
+  // Generate word position only once when word changes
   useEffect(() => {
     if (containerRef.current) {
-      setWordPosition(generateWordPosition());
+      const newPosition = generateWordPosition();
+      setWordPosition(newPosition);
     }
   }, [currentWordIndex]);
 
   return (
-    <div className="min-h-screen bg-black flex flex-col overflow-hidden">
+    <div className="h-screen bg-black flex flex-col overflow-hidden">
       <div 
         ref={containerRef}
         className="flex-1 relative cursor-none"
         onMouseMove={handleMouseMove}
         onTouchMove={handleTouchMove}
-        style={{ minHeight: 'calc(100vh - 80px)' }}
+        style={{ height: 'calc(100vh - 80px)' }}
       >
         {/* Spotlight effect using CSS mask */}
         <div 
