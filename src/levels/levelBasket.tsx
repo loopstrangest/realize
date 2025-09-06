@@ -203,7 +203,7 @@ const LevelBasket: React.FC<LevelProps> = ({
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col overflow-hidden">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div 
         ref={containerRef}
         className="flex-1 relative cursor-none"

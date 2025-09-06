@@ -45,7 +45,7 @@ const LevelIntro: React.FC<LevelProps> = ({
   const currentWord = TARGET_WORDS[currentWordIndex];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div className="flex-1 p-8 flex items-center justify-center">
         <div className="max-w-sm space-y-8">
           {rows.map((row, rowIndex) => (

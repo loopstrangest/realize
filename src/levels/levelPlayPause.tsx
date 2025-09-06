@@ -118,7 +118,7 @@ const LevelPlayPause: React.FC<LevelProps> = ({
       : messages[0];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div className="flex-1 flex flex-col items-center justify-center p-4 px-8 space-y-6">
         {/* Fixed height message area */}
         <div className="h-32 flex items-center justify-center w-full">
@@ -129,9 +129,23 @@ const LevelPlayPause: React.FC<LevelProps> = ({
         <div className="h-20 flex items-center justify-center">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="w-20 h-20 rounded-full bg-gray-800 text-white flex items-center justify-center text-4xl hover:bg-gray-700 transition-colors"
+            className="w-20 h-20 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-700 transition-colors"
           >
-            {isPlaying ? "⏸" : "▶"}
+            {isPlaying ? (
+              // Pause icon - two vertical bars
+              <div className="flex items-center justify-center space-x-1">
+                <div className="w-2 h-8 bg-white"></div>
+                <div className="w-2 h-8 bg-white"></div>
+              </div>
+            ) : (
+              // Play icon - triangle pointing right
+              <div className="w-0 h-0 ml-1" style={{
+                borderLeft: '12px solid white',
+                borderTop: '8px solid transparent',
+                borderBottom: '8px solid transparent'
+              }}>
+              </div>
+            )}
           </button>
         </div>
 

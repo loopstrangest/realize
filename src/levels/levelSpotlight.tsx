@@ -102,9 +102,11 @@ const LevelSpotlight: React.FC<LevelProps> = ({
     return () => window.removeEventListener('resize', updateLayout);
   }, []);
 
-  // Update word position when currentWordIndex changes
+  // Update word position when currentWordIndex changes (but only if container exists)
   useEffect(() => {
-    setWordPosition(generateWordPosition());
+    if (containerRef.current) {
+      setWordPosition(generateWordPosition());
+    }
   }, [currentWordIndex]);
 
   return (

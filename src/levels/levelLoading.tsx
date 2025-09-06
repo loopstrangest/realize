@@ -164,7 +164,7 @@ const LevelLoading: React.FC<LevelProps> = ({
   const progress = ((currentWordIndex + 1) / 9) * 100; // 1/9 to 8/9
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div className="flex-1 flex flex-col items-center justify-center p-8">
         {/* Loading Bar */}
         <div className="w-full max-w-md mb-2">

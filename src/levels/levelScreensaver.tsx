@@ -136,7 +136,7 @@ const LevelScreensaver: React.FC<LevelProps> = ({
   }, [currentWordIndex]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div 
         ref={containerRef}
         className="flex-1 relative overflow-hidden"

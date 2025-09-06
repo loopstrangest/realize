@@ -119,53 +119,50 @@ const LevelT9Phone: React.FC<LevelProps> = ({
     }
   };
 
-  const renderPhoneButton = (button: PhoneButton, index: number) => {
-    return (
-      <button
-        key={button.number}
-        onClick={() => handleButtonPress(button)}
-        className="w-20 h-20 rounded-full bg-gray-100 border-2 border-gray-300 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors active:bg-gray-300"
-      >
-        <span className="text-2xl font-bold text-black">{button.number}</span>
-        {button.letters && (
-          <span className="text-xs text-gray-600 font-medium">{button.letters}</span>
-        )}
-      </button>
-    );
-  };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className="max-w-sm space-y-8">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 pb-2">
+        <div className="max-w-sm w-full flex flex-col items-center space-y-4">
 
           {/* Phone keypad */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-4">
-              {phoneButtons.map((button, index) => renderPhoneButton(button, index))}
+            <div className="grid grid-cols-3 gap-3">
+              {phoneButtons.map((button, index) => (
+                <button
+                  key={button.number}
+                  onClick={() => handleButtonPress(button)}
+                  className="w-16 h-16 rounded-full bg-gray-100 border-2 border-gray-300 flex flex-col items-center justify-center hover:bg-gray-200 transition-colors active:bg-gray-300"
+                >
+                  <span className="text-xl font-bold text-black">{button.number}</span>
+                  {button.letters && (
+                    <span className="text-xs text-gray-600 font-medium">{button.letters}</span>
+                  )}
+                </button>
+              ))}
             </div>
           </div>
 
           {/* Current input display */}
-          <div className="text-center h-16 flex items-center justify-center">
+          <div className="text-center h-12 flex items-center justify-center w-full">
             {currentInput ? (
               <button
                 onClick={handleWordTap}
-                className={`text-5xl font-bold px-4 py-2 cursor-pointer ${
+                className={`text-4xl font-bold px-4 py-2 cursor-pointer ${
                   isLetterLocked ? 'text-black' : 'text-gray-400'
                 }`}
               >
                 {currentInput}
               </button>
             ) : (
-              <div className="h-16"></div>
+              <div className="h-12"></div>
             )}
           </div>
 
           {/* Progress checkmarks */}
-          <div className="flex justify-center space-x-2 mt-4 h-8 items-center">
+          <div className="flex justify-center space-x-2 h-6 items-center min-h-[24px]">
             {Array.from({ length: completedWords.length }, (_, index) => (
-              <span key={index} className="text-2xl text-green-500">
+              <span key={index} className="text-xl text-green-500">
                 ✓
               </span>
             ))}

@@ -472,7 +472,7 @@ const LevelWordSearch: React.FC<LevelProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
       <div className="flex-1 p-4 flex items-center justify-center overflow-auto">
         <div className="max-w-fit relative">
           {/* Word search grid */}

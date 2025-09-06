@@ -293,8 +293,8 @@ const LevelHangman: React.FC<LevelProps> = ({
   );
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <div className="flex-1 p-4 pt-16">
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center p-4 md:p-8 pb-2 md:pb-4">
         {/* Checkmark overlay */}
         {showCheckmark && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -304,25 +304,28 @@ const LevelHangman: React.FC<LevelProps> = ({
           </div>
         )}
 
-        {/* Top: Hangman display */}
-        <div className="flex justify-center mb-8">
-          <HangmanSVG wrongGuesses={hangman.wrongGuesses} />
-        </div>
-
-        {/* Middle: Word blanks */}
-        <WordDisplay />
-
-        {/* Game over message */}
-        {hangman.isComplete && hangman.wrongGuesses >= maxWrongGuesses && (
-          <div className="text-center text-red-600 text-xl font-bold mb-4">
-            Game Over! Try Again...
+        <div className="flex flex-col justify-center space-y-4 md:space-y-8 max-w-2xl mx-auto w-full">
+          {/* Top: Hangman display */}
+          <div className="flex justify-center">
+            <HangmanSVG wrongGuesses={hangman.wrongGuesses} />
           </div>
-        )}
 
+          {/* Middle: Word blanks */}
+          <div className="flex justify-center">
+            <WordDisplay />
+          </div>
 
-        {/* Bottom: Keyboard */}
-        <div className="mt-8">
-          <Keyboard />
+          {/* Game over message */}
+          {hangman.isComplete && hangman.wrongGuesses >= maxWrongGuesses && (
+            <div className="text-center text-red-600 text-xl font-bold">
+              Game Over! Try Again...
+            </div>
+          )}
+
+          {/* Bottom: Keyboard */}
+          <div className="flex justify-center">
+            <Keyboard />
+          </div>
         </div>
       </div>
 
